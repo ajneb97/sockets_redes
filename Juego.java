@@ -41,9 +41,15 @@ public class Juego {
 	}
 	
 	public void preguntaLetra() throws IOException {
+            String letra;
+            do {
 		System.out.println("Escribe una letra");
-		String letra = conector.getEntrada().readLine();
-		//AQUI COMPROBACIONES DE QUE SEA VERDADERAMENTE UNA LETRA, NO UNA CADENA DE STRINGS, NO UN NUMERO, NO VACIO
-		//PUEDE CREARSE UNA CLASE APARTE DE UTILIDADES PARA VERIFICAR ESTO
+		letra = conector.getEntrada().readLine();
+                if (!letra.matches("^[a-zA-Z]")) {
+                    System.out.println("Por favor asegurate de que estes ingresando una letra.");
+                    
+                }
+            }while (!letra.equals("")) ;
+		
 	}
 }
